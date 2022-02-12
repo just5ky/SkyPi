@@ -39,11 +39,16 @@
 * [X] Valutwarden
 * [ ] Whoogle
 
-## Installation (in-complete)
+## Installation 
 
-`dietpi-software`
+`╰─❯ dietpi-software`
+
+![dietpi](https://i.imgur.com/XBd33Qm.png)
 
 and install Docker and Docker-compose
+
+![software](https://i.imgur.com/Udoibjm.png)
+
 
 ## Credits
 
