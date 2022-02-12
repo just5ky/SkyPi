@@ -1,0 +1,16 @@
+version: "3"
+services:
+#--------------------------------------------------------------------------------------------#
+#                                 Flame Dashboard                                            #
+#--------------------------------------------------------------------------------------------#
+  flame:
+    image: pawelmalak/flame:multiarch
+    container_name: flame
+    volumes:
+      - $DOCKERDIR/flame:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock # optional but required for Docker integration
+    ports:
+      - $FLAME_PORT:5005
+    environment:
+      - PASSWORD=PASSWORD     #change this
+    restart: unless-stopped

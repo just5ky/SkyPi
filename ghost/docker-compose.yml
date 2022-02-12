@@ -1,0 +1,37 @@
+version: "3"
+services:
+#--------------------------------------------------------------------------------------------#
+#                                  Ghost                                                     #
+#--------------------------------------------------------------------------------------------#
+  ghost:
+    image: ghost
+    restart: unless-stopped
+    container_name: ghost
+    networks:
+      - ghost
+    ports:
+      - $GHOST_PORT:2368
+    environment:
+      # see https://ghost.org/docs/config/#configuration-options
+      database__client: mysql
+      database__connection__host: ghost-db
+      database__connection__user: root
+      database__connection__password: example
+      database__connection__database: ghost
+      url: https://blog.justsky.eu
+    labels:
+      - flame.type=application # "app" works too
+      - flame.name=Ghost
+      - flame.url=https://blog.DOMAIN.TLD/
+      - flame.icon=https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/ghost.png
+
+  ghost-db:
+    image: arm64v8/mariadb:latest 
+    restart: unless-stopped
+    container_name: ghost-db
+    networks:
+      - ghost
+    volumes:
+      -  $DOCKERDIR/ghost/db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: example
