@@ -1,0 +1,41 @@
+version: "3"
+
+services:
+#--------------------------------------------------------------------------------------------# 
+#                                 Authelia 2FA                                               #
+#--------------------------------------------------------------------------------------------# 
+  authelia:
+    image: authelia/authelia
+    container_name: authelia_app
+    volumes:
+      - $DOCKERDIR/authelia/config:/config
+    networks:
+      - authelia
+    ports:
+      - 9091:9091
+    restart: unless-stopped
+    healthcheck:
+      disable: true
+    environment:
+      - TZ=$TZ
+    labels:
+      ## Flame
+      - flame.type=application # "app" works too
+      - flame.name=Authelia
+      - flame.url=https://auth.DOMAIN.TLD
+      - flame.icon=https://raw.githubusercontent.com/walkxcode/dashboard-icons/master/png/authelia.png
+    depends_on:
+      - redis1
+
+  redis1:
+    image: redis:alpine
+    container_name: authelia_redis
+    volumes:
+      - $DOCKERDIR/authelia/redis:/data
+    networks:
+      - authelia
+    expose:
+      - 6379
+    restart: unless-stopped
+    environment:
+      - TZ=$tz

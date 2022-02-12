@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+#--------------------------------------------------------------------------------------------# 
+#                                 Bitwarden:Password Manager                                 #
+#--------------------------------------------------------------------------------------------# 
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: always
+    environment:
+      - WEBSOCKET_ENABLED=true                  # Enable WebSocket notifications.
+      - SIGNUPS_ALLOWED=false
+    volumes:
+      - $DOCKERDIR/bitwarden:/data
+    ports:
+      - 10000:80                                 # Change this
+    labels:
+      - flame.type=application # "app" works too
+      - flame.name=Bitwarden
+      - flame.url=https://pswd.DOMAIN.TLD
+      - flame.icon=https://raw.githubusercontent.com/walkxcode/dashboard-icons/master/png/bitwarden.png
