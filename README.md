@@ -39,8 +39,20 @@
 * [X] Valutwarden
 * [ ] Whoogle
 
-## Installation
+## Installation (in-complete)
 
 `dietpi-software`
 
 and install Docker and Docker-compose
+
+## Credits
+
+I started my selfhosting journey in October 2021. These are the sources that helped me.
+
+* [pi-hosted](https://github.com/novaspirit/pi-hosted)
+* [self-hosted_docker_setups](https://github.com/abhilesh/self-hosted_docker_setups)
+* [hotio](https://hotio.dev/)
+* [linuxserver](https://fleet.linuxserver.io/)
+* [Bypass_CGNAT](https://github.com/mochman/Bypass_CGNAT)
+* [libhunt](https://selfhosted.libhunt.com/)
+* [r/selfhosted](https://www.reddit.com/r/selfhosted/)
