@@ -12,7 +12,7 @@ services:
     networks:
       - authelia
     ports:
-      - 9091:9091
+      - $AUTHELIA_PORT:9091
     restart: unless-stopped
     healthcheck:
       disable: true

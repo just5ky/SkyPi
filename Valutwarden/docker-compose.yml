@@ -14,7 +14,7 @@ services:
     volumes:
       - $DOCKERDIR/bitwarden:/data
     ports:
-      - 10000:80                                 # Change this
+      - $BITWARDEN_PORT:80                                 # Change this
     labels:
       - flame.type=application # "app" works too
       - flame.name=Bitwarden
