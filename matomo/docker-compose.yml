@@ -1,0 +1,42 @@
+version: "3"
+services:
+#--------------------------------------------------------------------------------------------#
+#                                  Matomo                                                    #
+#--------------------------------------------------------------------------------------------#
+  matomo:
+    image: matomo
+    container_name: matomo
+    restart: unless-stopped
+    networks:
+      - matomo
+    ports:
+      - $MATOMO_PORT:80
+    environment:
+      - MATOMO_DATABASE_HOST=matomo_db
+      - MATOMO_DATABASE_TABLES_PREFIX=mat_
+      - MATOMO_DATABASE_USERNAME=matomo
+      - MATOMO_DATABASE_PASSWORD=matomo
+      - MATOMO_DATABASE_DBNAME=matomo
+    volumes:
+      - $DOCKERDIR/matomo:/var/www/html
+    links:
+      - matomo_db:db
+    labels:
+      - flame.type=application # "app" works too
+      - flame.name=Matomo
+      - flame.url=https://analytics.DOMAIN.TLD
+      - flame.icon=https://raw.githubusercontent.com/walkxcode/dashboard-icons/master/png/matomo.png
+
+  matomo_db:
+    image: arm64v8/mariadb:latest
+    container_name: matomo_db
+    restart: unless-stopped
+    networks:
+      - matomo
+    environment:
+      MYSQL_DATABASE: matomo
+      MYSQL_USER: matomo
+      MYSQL_PASSWORD: matomo
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - matomo_db:/var/lib/mysql

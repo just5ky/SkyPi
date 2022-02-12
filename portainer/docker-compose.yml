@@ -1,0 +1,24 @@
+version: "3"
+services:
+#--------------------------------------------------------------------------------------------# 
+#                                 Portainer                                                  #
+#--------------------------------------------------------------------------------------------# 
+  portainer:
+    container_name: portainer
+    image: portainer/portainer-ce:latest
+    restart: always
+    command: -H unix:///var/run/docker.sock # # Use Docker Socket Proxy instead for improved security
+    ports:                #  <--- Ports outside container for local entering webUI
+      - "$PORTAINER_PORT:9000"
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro # # Use Docker Socket Proxy instead for improved security
+      - $DOCKERDIR/portainer/:/data # Change to local directory if you want to save/transfer config locally
+    environment:
+      TZ: $TZ
+    labels:
+      - flame.type=application # "app" works too
+      - flame.name=Portainer
+      - flame.url=https://docker.justsky.eu
+      - flame.icon=https://raw.githubusercontent.com/walkxcode/dashboard-icons/master/png/portainer.png

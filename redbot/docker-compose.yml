@@ -1,0 +1,18 @@
+version: "3"
+services:
+#--------------------------------------------------------------------------------------------# 
+#                                 Red DiscordBot V3                                          #
+#--------------------------------------------------------------------------------------------# 
+  redbot:
+    container_name: redbot
+    image: phasecorex/red-discordbot:latest
+    restart: unless-stopped
+    volumes:
+    - $DOCKERDIR/redbot/:/data
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+      UMASK: $UMASK
+      TZ: $TZ
+      TOKEN: $DISCORD_BOT_TOKEN
+      PREFIX: $PREFIX

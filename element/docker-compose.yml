@@ -1,0 +1,14 @@
+#--------------------------------------------------------------------------------------------#
+#                                  Element Matrix client                                     #
+#--------------------------------------------------------------------------------------------#
+  element:
+    image: ghcr.io/bubuntux/element-web
+    container_name: element
+    restart: unless-stopped
+    ports:
+      - '$ELEMENT_PORT:80'
+    labels:
+      - flame.type=application # "app" works too
+      - flame.name=Element
+      - flame.url=https://element.DOMAIN.TLD
+      - flame.icon=https://raw.githubusercontent.com/walkxcode/dashboard-icons/master/png/element.png

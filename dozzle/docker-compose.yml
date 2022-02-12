@@ -1,0 +1,18 @@
+version: "3"
+services:
+#--------------------------------------------------------------------------------------------# 
+#                                 Dozzle - Real-time Docker Log Viewer                       #
+#--------------------------------------------------------------------------------------------#
+  dozzle:
+    container_name: dozzle
+    image: amir20/dozzle:latest
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - $DOZZLE_PORT:8080
+    labels:
+      - flame.type=application # "app" works too
+      - flame.name=Dozzle
+      - flame.url=https://log.DOMAIN.TLD
+      - flame.icon=https://raw.githubusercontent.com/walkxcode/dashboard-icons/master/png/dozzle.png

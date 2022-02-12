@@ -1,0 +1,59 @@
+version: "3"
+services:
+#--------------------------------------------------------------------------------------------# 
+#                                 Whoogle                                                    #
+#--------------------------------------------------------------------------------------------# 
+  whoogle-search:
+    image: benbusby/whoogle-search:latest
+    container_name: whoogle-search
+    restart: unless-stopped
+    pids_limit: 50
+    mem_limit: 500mb
+    memswap_limit: 500mb
+    # user debian-tor from tor package
+    user: whoogle
+    security_opt:
+      - no-new-privileges
+    cap_drop:
+      - ALL
+    tmpfs:
+      - /config/:size=10M,uid=927,gid=927,mode=1700
+      - /var/lib/tor/:size=10M,uid=927,gid=927,mode=1700
+      - /run/tor/:size=1M,uid=927,gid=927,mode=1700
+    environment: # Uncomment to configure environment variables
+      #- Basic auth configuration, uncomment to enable
+      #- WHOOGLE_USER=USER
+      #- WHOOGLE_PASS=PASS
+      # Proxy configuration, uncomment to enable
+      #- WHOOGLE_PROXY_USER=<proxy username>
+      #- WHOOGLE_PROXY_PASS=<proxy password>
+      #- WHOOGLE_PROXY_TYPE=<proxy type (http|https|socks4|socks5)
+      #- WHOOGLE_PROXY_LOC=<proxy host/ip>
+      # Site alternative configurations, uncomment to enable
+      # Note: If not set, the feature will still be available
+      # with default values. 
+      - WHOOGLE_ALT_TW=nitter.net
+      - WHOOGLE_ALT_YT=invidious.snopyta.org
+      - WHOOGLE_ALT_IG=bibliogram.art/u
+      - WHOOGLE_ALT_RD=libredd.it
+      #- WHOOGLE_ALT_TL=lingva.ml
+      - WHOOGLE_ALT_MD=scribe.rip
+      - WHOOGLE_ALT_IMG=imgin.voidnet.tech
+      - WHOOGLE_ALT_WIKI=wikiless.org
+      - WHOOGLE_CONFIG_THEME=dark
+      - WHOOGLE_CONFIG_SAFE=0
+      - WHOOGLE_CONFIG_NEW_TAB=1
+      - WHOOGLE_CONFIG_VIEW_IMAGE=1
+      - WHOOGLE_CONFIG_GET_ONLY=1
+      - WHOOGLE_RESULTS_PER_PAGE=10
+      - WHOOGLE_AUTOCOMPLETE=1
+      - WHOOGLE_CONFIG_DISABLE=1
+    #env_file: # Alternatively, load variables from whoogle.env
+      #- whoogle.env
+    ports:
+      - $WHOOGLE_PORT:5000
+    labels:
+      - flame.type=application # "app" works too
+      - flame.name=Whoogle
+      - flame.url=https://search.DOMAIN.TLD
+      - flame.icon=https://raw.githubusercontent.com/walkxcode/dashboard-icons/master/png/whooglesearch.png
