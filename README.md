@@ -9,6 +9,8 @@
 * 1TB HDD
 * Diet Pi OS
 
+![Pi](https://i.imgur.com/lDofoCm.jpg)
+
 ## Apps
 
 * [X] Authelia
