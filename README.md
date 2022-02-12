@@ -13,33 +13,33 @@
 
 * [X] Authelia
 * [ ] Bazarr
-* [ ] Dozzle
-* [ ] Element
+* [X] Dozzle
+* [X] Element
 * [ ] FileBrowser
 * [ ] Firefly iii
 * [X] Flame
-* [ ] FreshRSS
+* [X] FreshRSS
 * [X] Ghost
 * [ ] HomeAssistant
 * [ ] Libreddit
-* [ ] Matomo
+* [X] Matomo
 * [ ] Monitor stack (grafana + cadvisior + node exporter + prometheus)
 * [ ] Nginx Proxy Manager
 * [ ] Paperless-ng stack (paperless + gotenberg + apache tika)
-* [ ] PhotoPrism
-* [ ] Portainer
+* [X] PhotoPrism
+* [X] Portainer
 * [ ] Prowlarr
 * [ ] Qflood (Qbittorrent + flood UI)
 * [ ] Radarr
-* [ ] RedBot
+* [X] RedBot
 * [ ] Scrutiny
 * [ ] Sonarr
 * [ ] Your_Spotify
 * [ ] Uptime Kuma
 * [X] Valutwarden
-* [ ] Whoogle
+* [X] Whoogle
 
-## Installation 
+## Installation
 
 `╰─❯ dietpi-software`
 
@@ -48,7 +48,6 @@
 and install Docker and Docker-compose
 
 ![software](https://i.imgur.com/Udoibjm.png)
-
 
 ## Credits
 
