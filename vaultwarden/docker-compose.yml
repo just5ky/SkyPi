@@ -12,6 +12,7 @@ services:
       - WEBSOCKET_ENABLED=true                  # Enable WebSocket notifications.
       - SIGNUPS_ALLOWED=false
     volumes:
+      # to be modified depending on your needs
       - $DOCKERDIR/bitwarden:/data
     ports:
       - $BITWARDEN_PORT:80                                

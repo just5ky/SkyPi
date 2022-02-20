@@ -15,14 +15,15 @@ services:
     depends_on:
       - freshrss-db
     volumes:
-      - $DOCKERDIR/freshrss/data:/var/www/FreshRSS/data
-      - $DOCKERDIR/freshrss/extensions:/var/www/FreshRSS/extensions
+    # to be modified depending on your needs
+      - ./data:/var/www/FreshRSS/data
+      - ./extensions:/var/www/FreshRSS/extensions
     environment:
       TZ: $TZ
     labels:
       - flame.type=application # "app" works too
       - flame.name=FreshRSS
-      - flame.url=https://rss.DOMAIN.TLD
+      - flame.url=https://rss.DOMAIN
       - flame.icon=https://raw.githubusercontent.com/walkxcode/dashboard-icons/master/png/freshrss.png
 
   freshrss-db:
@@ -33,7 +34,8 @@ services:
     networks:
       - freshrss
     volumes:
-      - $DOCKERDIR/freshrss/db:/var/lib/postgresql/data
+    # to be modified depending on your needs
+      - ./db:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: freshrss
       POSTGRES_PASSWORD: freshrss

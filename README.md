@@ -4,7 +4,7 @@
 
 ## Specs
 
-* Raspberry Pi 4B 8GB Model
+* Raspberry Pi 4B 8GB
 * 256 GB SSD
 * 1TB HDD
 * Diet Pi OS
@@ -15,15 +15,15 @@
 * [ ] Bazarr
 * [X] Dozzle
 * [X] Element
-* [ ] FileBrowser
+* [X] FileBrowser
 * [ ] Firefly iii
 * [X] Flame
 * [X] FreshRSS
 * [X] Ghost
 * [ ] HomeAssistant
-* [ ] Libreddit
+* [X] Libreddit
 * [X] Matomo
-* [ ] Monitor stack (grafana + cadvisior + node exporter + prometheus)
+* [X] Monitor stack (grafana + cadvisior + node exporter + prometheus)
 * [ ] Nginx Proxy Manager
 * [ ] Paperless-ng stack (paperless + gotenberg + apache tika)
 * [X] PhotoPrism

@@ -8,7 +8,8 @@ services:
     image: authelia/authelia
     container_name: authelia_app
     volumes:
-      - $DOCKERDIR/authelia/config:/config
+    # to be modified depending on your needs
+      - ./config:/config
     networks:
       - authelia
     ports:

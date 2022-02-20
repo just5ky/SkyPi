@@ -8,6 +8,7 @@ services:
     image: phasecorex/red-discordbot:latest
     restart: unless-stopped
     volumes:
+    # to be modified depending on your needs
     - $DOCKERDIR/redbot/:/data
     environment:
       PUID: $PUID

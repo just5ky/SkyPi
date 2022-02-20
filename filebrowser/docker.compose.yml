@@ -1,0 +1,23 @@
+version: "3"
+services:
+#--------------------------------------------------------------------------------------------#
+#                                 File Browser                                               #
+#--------------------------------------------------------------------------------------------#
+  filebrowser:
+    image: filebrowser/filebrowser
+    container_name: filebrowser
+    volumes:
+    # to be modified depending on your needs
+      - '/:/srv'
+      - ./filebrowser.db:/database.db
+    ports:
+      - '5045:80'
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+    restart: unless-stopped
+    labels:
+      - flame.type=application # "app" works too
+      - flame.name=File Browser
+      - flame.url=https://file.DOMAIN
+      - flame.icon=https://raw.githubusercontent.com/walkxcode/dashboard-icons/master/png/filebrowser.png

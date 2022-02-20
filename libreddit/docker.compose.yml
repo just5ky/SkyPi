@@ -1,0 +1,20 @@
+version: "3"
+services:
+#--------------------------------------------------------------------------------------------#
+#                                  Libreddit                                                 #
+#--------------------------------------------------------------------------------------------#
+  libreddit:
+    container_name: libreddit
+    image: spikecodes/libreddit:arm
+    restart: unless-stopped
+    ports:
+      - '12999:8080'
+    environment:
+      - LIBREDDIT_DEFAULT_SHOW_NSFW=on      # Turn on 18+ content
+      - LIBREDDIT_DEFAULT_USE_HLS=on        # Wide mode
+      - LIBREDDIT_DEFAULT_THEME=black       # Theme
+    labels:
+      - flame.type=application # "app" works too
+      - flame.name=Libreddit
+      - flame.url=https://reddit.DOMAIN
+      - flame.icon=https://raw.githubusercontent.com/walkxcode/dashboard-icons/master/png/libreddit.png

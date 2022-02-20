@@ -18,13 +18,14 @@ services:
       - MATOMO_DATABASE_PASSWORD=matomo
       - MATOMO_DATABASE_DBNAME=matomo
     volumes:
+    # to be modified depending on your needs
       - $DOCKERDIR/matomo:/var/www/html
     links:
       - matomo_db:db
     labels:
       - flame.type=application # "app" works too
       - flame.name=Matomo
-      - flame.url=https://analytics.DOMAIN.TLD
+      - flame.url=https://analytics.DOMAIN
       - flame.icon=https://raw.githubusercontent.com/walkxcode/dashboard-icons/master/png/matomo.png
 
   matomo_db:

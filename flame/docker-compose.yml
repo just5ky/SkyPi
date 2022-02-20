@@ -7,6 +7,7 @@ services:
     image: pawelmalak/flame:multiarch
     container_name: flame
     volumes:
+    # to be modified depending on your needs
       - $DOCKERDIR/flame:/app/data
       - /var/run/docker.sock:/var/run/docker.sock # optional but required for Docker integration
     ports:
