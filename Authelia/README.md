@@ -7,13 +7,13 @@
 
 ### Change the IP:Port, service name, auth URL where mentioned
 
-### 
+###
 
 ## Follow this tutorial by DBTech if you are stuck somewhere
 
-### [Youtube](https://youtube.com/dbtech/) 
+### [Youtube](https://www.youtube.com/DBTechYT)
 
-### [DBTech Doc](https://dbte.ch)
+### [DBTech Doc](https://dbt3ch.com/books/authelia-for-nginx-proxy-manager)
 
 # How to Bypass certain pages behing authelia to share data and api
 
