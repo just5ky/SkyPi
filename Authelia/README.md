@@ -11,7 +11,7 @@
 
 ## Follow this tutorial by DBTech if you are stuck somewhere
 
-### [Youtube](https://www.youtube.com/DBTechYT)
+### [Youtube](https://youtu.be/4UKOh3ssQSU)
 
 ### [DBTech Doc](https://dbt3ch.com/books/authelia-for-nginx-proxy-manager)
 
@@ -80,7 +80,7 @@ access_control:
 
 #### You can access it from the mobile app, and upload documents
 
-#### Thumbnails will be shown as it can be access by anybody using that link
+#### Thumbnails will not be visible as it can be access by anybody using that link
 
 ```yml
 access_control:
