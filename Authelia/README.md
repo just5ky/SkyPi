@@ -3,7 +3,7 @@
 
 ##
 
-### Put the [Nginx proxy config](/authelia/nginx%20proxy%20configuration) in the additional settings of a proxy setting
+### Put the [Nginx proxy config](/authelia/nginx_proxy_configuration) in the additional settings of a proxy setting
 
 ### Change the IP:Port, service name, auth URL where mentioned
 
