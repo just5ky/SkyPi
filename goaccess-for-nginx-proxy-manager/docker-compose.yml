@@ -1,0 +1,23 @@
+version: "3"
+services:
+#--------------------------------------------------------------------------------------------# 
+#                       GoAccess For NginxProxyManager                                       #
+#--------------------------------------------------------------------------------------------#
+  goaccess:
+    image: justsky/goaccess-for-nginxproxymanager
+    container_name: goaccess
+    restart: unless-stopped
+    ports:
+      - 7880:7880
+    volumes:
+      - $DOCKERDIR/npm/data/logs:/opt/log       #set this to your Nigix proxymanager log location
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=$TZ
+    labels:
+      ## Flame 
+      - flame.type=application # "app" works too
+      - flame.name=GoAccess
+      - flame.url=https://goaccess.DOMAIN
+      #- flame.icon=https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/goaccess.png
