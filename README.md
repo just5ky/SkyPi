@@ -1,4 +1,5 @@
-# SkyPi - My Selfhosted journey
+SkyPi - My Selfhosted journey
+=============================
 
 ![Flame](https://i.imgur.com/L4AG9hw.png)
 
