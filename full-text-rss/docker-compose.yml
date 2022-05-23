@@ -1,0 +1,21 @@
+version: '3'
+services:
+
+  #--------------------------------------------------------------------------------------------# 
+  #                                 Full Text RSS                                              #
+  #--------------------------------------------------------------------------------------------# 
+  fullfeedrss:
+    image: heussd/fivefilters-full-text-rss
+    container_name: fullfeedrss
+    restart: unless-stopped
+    environment:
+      - FTR_ADMIN_PASSWORD=$FTR_ADMIN_PASSWORD
+    volumes:
+      - "rss-cache:/var/www/html/cache"
+    ports:
+      - "$FTR:80"
+    labels:
+      - flame.type=application # "app" works too
+      - flame.name=Full Feed RSS
+      - flame.url=http://skypi.local:$FTR
+      - flame.icon=https://www.fivefilters.org/wp-content/uploads/2020/04/cropped-site-logo-round-180x180.png

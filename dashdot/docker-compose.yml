@@ -1,0 +1,16 @@
+version: '3'
+services:
+  #--------------------------------------------------------------------------------------------#
+  #                                  DashDot                                                   #
+  #--------------------------------------------------------------------------------------------# 
+  dashdot:
+    container_name: dashdot
+    image: mauricenino/dashdot
+    restart: unless-stopped
+    ports:
+      - $DASHDOT:3001
+    labels:
+      - flame.type=application # "app" works too
+      - flame.name=Dashdot
+      - flame.url=http://skypi.local:$DASHDOT
+      - flame.icon=https://raw.githubusercontent.com/MauriceNino/dashdot/master/frontend/public/logo192.png

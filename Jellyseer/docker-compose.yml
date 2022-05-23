@@ -1,0 +1,21 @@
+version: '3'
+services:
+  #--------------------------------------------------------------------------------------------# 
+  #                                 Jellyseer                                                  #
+  #--------------------------------------------------------------------------------------------# 
+  jellyseerr:
+    image: fallenbagel/jellyseerr
+    container_name: jellyseerr
+    environment:
+      - LOG_LEVEL=debug
+      - TZ=$TZ
+    ports:
+      - $jellyseer:5055
+    volumes:
+      - $DOCKERDIR/jellyseer:/app/config
+    restart: unless-stopped
+    labels:
+      - flame.type=application # "app" works too
+      - flame.name=Jellyseer
+      - flame.url=http://skypi.local:$jellyseer
+      - flame.icon=https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/jellyseerr.png

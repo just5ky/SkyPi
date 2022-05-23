@@ -1,0 +1,24 @@
+version: '3'
+services:
+  #--------------------------------------------------------------------------------------------#
+  #                                  Rclone                                                    #
+  #--------------------------------------------------------------------------------------------#
+  rclone-mount:
+    container_name: rclone-mount
+    image: web2brain/rclone-mount
+    restart: unless-stopped
+    #    privileged: true
+    cap_add:
+      - SYS_ADMIN
+    devices:
+      - /dev/fuse
+    security_opt:
+      - apparmor:unconfined
+    environment:
+      RemotePath: 'media:'
+      MountCommands: --allow-other --uid 1000 --gid 1000 --umask 022 --default-permissions --allow-non-empty --dir-cache-time 168h --poll-interval 5m --buffer-size 128M
+    stdin_open: true
+    tty: true
+    volumes:
+      - $DOCKERDIR/rclone/config:/config
+      - $DOCKERDIR/rclone/media:/mnt/mediaefs:shared
