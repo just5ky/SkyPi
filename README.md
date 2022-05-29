@@ -45,6 +45,7 @@ SkyPi - My Selfhosted journey
 * [ ] [Your_Spotify](https://github.com/Yooooomi/your_spotify)
 * [ ] [Uptime Kuma](https://github.com/louislam/uptime-kuma)
 * [X] [Valutwarden](https://github.com/dani-garcia/vaultwarden)
+* [X] [Watchtower](https://containrrr.dev/watchtower)
 * [X] [Whoogle](https://github.com/benbusby/whoogle-search)
 
 ## Installation
