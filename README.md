@@ -1,7 +1,7 @@
 SkyPi - My Selfhosted journey
 =============================
 
-![Flame](https://i.imgur.com/L4AG9hw.png)
+![image](https://user-images.githubusercontent.com/71321862/171612656-dec8b919-f85a-4411-8595-120a263805c0.png)
 
 ## Specs
 
