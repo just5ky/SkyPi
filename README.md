@@ -32,6 +32,7 @@ SkyPi - My Selfhosted journey
 * [X] [Matomo](https://github.com/matomo-org/docker)
 * [X] [Monitor stack](https://github.com/oijkn/Docker-Raspberry-PI-Monitoring) (grafana + cadvisior + node exporter + prometheus)
 * [ ] [Nginx Proxy Manager](https://github.com/NginxProxyManager/nginx-proxy-manager)
+* [ ] [OpenSearch](https://opensearch.org/)
 * [ ] [Paperless-ng stack](https://github.com/jonaswinkler/paperless-ng) (paperless + gotenberg + apache tika)
 * [X] [PhotoPrism](https://github.com/photoprism/photoprism)
 * [X] [Portainer](https://docs.portainer.io/v/ce-2.11/start/install)
