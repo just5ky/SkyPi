@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+    siyuan:
+        volumes:
+            - '$DOCKERDIR/siyuan/:/siyuan/workspace'
+        ports:
+            - '6806:6806'
+        image: justsky/siyuan:master
+        restart: unless-stopped
+        container_name: siyuan
