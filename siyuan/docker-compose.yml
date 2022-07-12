@@ -5,6 +5,6 @@ services:
             - '$DOCKERDIR/siyuan/:/siyuan/workspace'
         ports:
             - '6806:6806'
-        image: siyuan/siyuan
+        image: b3log/siyuan
         restart: unless-stopped
         container_name: siyuan
