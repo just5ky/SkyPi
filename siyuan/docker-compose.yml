@@ -5,6 +5,6 @@ services:
             - '$DOCKERDIR/siyuan/:/siyuan/workspace'
         ports:
             - '6806:6806'
-        image: justsky/siyuan:master
+        image: siyuan/siyuan
         restart: unless-stopped
         container_name: siyuan
