@@ -1,0 +1,23 @@
+version: "3"
+services:
+#--------------------------------------------------------------------------------------------# 
+#                                 Light LDAP                                                 #
+#--------------------------------------------------------------------------------------------#
+  lldap:
+    image: nitnelave/lldap:latest
+    container_name: lldap
+    restart: unless-stopped
+    ports:
+      - "$LLDAP:3890"     # LDAP
+      - "$LLDAP_WEB:17170"   # Web
+    volumes:
+      - $DOCKERDIR/lldap:/data
+    environment:
+      - LLDAP_JWT_SECRET=$LLDAP_JWT_SECRET
+      - LLDAP_LDAP_USER_PASS=$LLDAP_LDAP_USER_PASS
+      - LLDAP_LDAP_BASE_DN=$LLDAP_LDAP_BASE_DN
+    labels:
+      - flame.type=application # "app" works too
+      - flame.name=Lldap
+      - flame.url=https://lldap.DOMAIN.TLD
+      - flame.icon=https://raw.githubusercontent.com/Just5KY/snippets/master/img/image.png

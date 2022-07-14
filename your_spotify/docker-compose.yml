@@ -1,0 +1,45 @@
+version: '3'
+services:
+#--------------------------------------------------------------------------------------------#
+#                                 Spotistats                                                 #
+#--------------------------------------------------------------------------------------------#
+  spotify_server:
+    image: yooooomi/your_spotify_server
+    container_name: spotify_server
+    restart: always
+    ports:
+      - "$SPOT_API_PORT:8080" # https://spotapi.DOMAIN.TLD
+    links:
+      - spotify_mongo
+    depends_on:
+      - spotify_mongo
+    environment:
+      - API_ENDPOINT=https://spotapi.DOMAIN.TLD # This MUST be included as a valid URL in the spotify dashboard
+      - CLIENT_ENDPOINT=https://spotify.DOMAIN.TLD
+      - SPOTIFY_PUBLIC=    # Get it from Spotify developer portal
+      - SPOTIFY_SECRET=    # Get it from Spotify developer portal
+      - CORS=all
+      - MONGO_ENDPOINT=mongodb://spotify_mongo:27017/your_spotify
+      - MAX_IMPORT_CACHE_SIZE=100000 # Number of items cached during import of past history
+      - TIMEZONE=$TZ # Only affects read requests, write are in UTC time
+
+  spotify_mongo:
+    container_name: spotify_mongo
+    image: arm64v8/mongo:4.4
+    restart: always
+    volumes:
+      - $DOCKERDIR/your_spotify:/data/db
+
+  spotify_web:
+    image: yooooomi/your_spotify_client
+    container_name: spotify_web
+    restart: always
+    ports:
+      - "$SPOTIFY_PORT:3000" #https://spotify.DOMAIN.TLD
+    environment:
+      - API_ENDPOINT=https://spotapi.DOMAIN.TLD
+    labels:
+      - flame.type=application # "app" works too
+      - flame.name=SpotiStats
+      - flame.url=https://spotify.DOMAIN.TLD
+      - flame.icon=https://raw.githubusercontent.com/walkxcode/dashboard-icons/master/png/spotify.png

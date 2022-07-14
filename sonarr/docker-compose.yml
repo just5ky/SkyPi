@@ -1,0 +1,25 @@
+version: '3'
+services:
+#--------------------------------------------------------------------------------------------# 
+#                                 Sonarr                                                     #
+#--------------------------------------------------------------------------------------------#
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    hostname: sonarr
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+    volumes:
+      - $DOCKERDIR/sonarr:/config
+      - $TV_SHOW:/tv
+      - $DOWNLOADS:/downloads 
+    ports:
+      - $SONARR_PORT:8989
+    restart: unless-stopped
+    labels:
+      - flame.type=application # "app" works too
+      - flame.name=Sonarr
+      - flame.url=https://sonarr.DOMAIN.TLD
+      - flame.icon=https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/sonarr.png

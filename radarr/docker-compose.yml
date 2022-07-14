@@ -1,0 +1,25 @@
+version: '3'
+services:
+#--------------------------------------------------------------------------------------------# 
+#                                 Radarr                                                     #
+#--------------------------------------------------------------------------------------------#
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    hostname: radarr
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+    volumes:
+      - $DOCKERDIR/radarr:/config
+      - $MOVIE:/movies
+      - $DOWNLOADS:/downloads 
+    ports:
+      - $RADARR_PORT:7878
+    restart: unless-stopped
+    labels:
+      - flame.type=application # "app" works too
+      - flame.name=Radarr
+      - flame.url=https://radarr.DOMAIN.TLD
+      - flame.icon=https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/radarr.png

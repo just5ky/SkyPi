@@ -1,0 +1,56 @@
+version: "3"
+services:
+  #--------------------------------------------------------------------------------------------# 
+  #                                 nginx-proxy-manager                                        #
+  #--------------------------------------------------------------------------------------------# 
+  npm:
+    container_name: npm_app
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    networks:
+      - nginx
+    ports:
+      - '80:80' # Public HTTP Port
+      - '443:443' # Public HTTPS Port
+      - '$NPM_WEB:81' # Admin Web Port
+      # Add any other Stream port you want to expose
+      # - '21:21' # FTP
+      # Uncomment the next line if you uncomment anything in the section
+      # environment:
+      # Uncomment this if you want to change the location of 
+      # the SQLite DB file within the container
+      # DB_SQLITE_FILE: "/data/database.sqlite"
+      # Uncomment this if IPv6 is not enabled on your host
+      # DISABLE_IPV6: 'true'
+    environment:        # Dont Use Defaults Change these! & make sure to put the same in db
+      DB_MYSQL_HOST: "db"
+      DB_MYSQL_PORT: 3306
+      DB_MYSQL_USER: "npm"
+      DB_MYSQL_PASSWORD: "npm"
+      DB_MYSQL_NAME: "npm"
+      # Uncomment this if IPv6 is not enabled on your host
+      # DISABLE_IPV6: 'true'
+    volumes:
+      - $DOCKERDIR/nginxproxy/data:/data
+      - $DOCKERDIR/nginxproxy/letsencrypt:/etc/letsencrypt
+    labels:
+      - flame.type=application # "app" works too
+      - flame.name=NPM
+      - flame.url=https://npm.DOMAIN.TLD
+      - flame.icon=https://raw.githubusercontent.com/walkxcode/dashboard-icons/master/png/nginxproxymanager.png
+    depends_on:
+      - db
+
+  db:
+    container_name: npm_data
+    image: 'jc21/mariadb-aria:latest'
+    restart: unless-stopped
+    networks:
+      - nginx
+    environment:      # Needs to be same as npm
+      MYSQL_ROOT_PASSWORD: 'npm'
+      MYSQL_DATABASE: 'npm'
+      MYSQL_USER: 'npm'
+      MYSQL_PASSWORD: 'npm'
+    volumes:
+      - $DOCKERDIR/nginxproxy/mysql:/var/lib/mysql

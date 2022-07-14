@@ -1,0 +1,31 @@
+version: '3'
+services:
+#--------------------------------------------------------------------------------------------#
+#                                  Code Server                                               #
+#--------------------------------------------------------------------------------------------#
+  code-server:
+    image: linuxserver/code-server
+    container_name: code-server
+    restart: unless-stopped
+    ports:
+      - $CODE_PORT:8443
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+      #- PASSWORD= #optional
+      #- HASHED_PASSWORD= #optional
+      #- SUDO_PASSWORD=password #optional
+      #- SUDO_PASSWORD_HASH= #optional
+      - PROXY_DOMAIN=code.DOMAIN.TLD #optional
+      #- DEFAULT_WORKSPACE=/config/workspace #optional
+      - DOCKER_MODS=linuxserver/mods:universal-git|linuxserver/mods:universal-docker|linuxserver/mods:code-server-dotnet|linuxserver/mods:code-server-powershell|linuxserver/mods:code-server-python3|linuxserver/mods:code-server-nodejs # |linuxserver/mods:code-server-extension-arguments
+      #- VSCODE_EXTENSION_IDS=oderwat.indent-rainbow|ms-toolsai.jupyter|redhat.vscode-yaml|alefragnani.project-manager|silofy.hackthebox|pkief.material-icon-theme|ms-vscode-remote.remote-ssh|tombonnike.vscode-status-bar-format-toggle|gydunhn.vsc-essentials|infosec-intern.yara
+    volumes:
+      - $DOCKERDIR/code/:/config
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - flame.type=application # "app" works too
+      - flame.name=Code
+      - flame.url=https://code.DOMAIN.TLD
+      - flame.icon=https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/vscode.png
