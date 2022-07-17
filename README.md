@@ -32,7 +32,7 @@
 - [x] [Matomo](https://github.com/matomo-org/docker)
 - [x] [Monitor stack](https://github.com/oijkn/Docker-Raspberry-PI-Monitoring) (grafana + cadvisior + node exporter + prometheus)
 - [X] [Nginx Proxy Manager](https://github.com/NginxProxyManager/nginx-proxy-manager)
-- [ ] [OpenSearch](https://opensearch.org/)
+- [X] [OpenSearch](https://opensearch.org/)
 - [ ] [Paperless-ng stack](https://github.com/jonaswinkler/paperless-ng) (paperless + gotenberg + apache tika)
 - [x] [PhotoPrism](https://github.com/photoprism/photoprism)
 - [x] [Portainer](https://docs.portainer.io/v/ce-2.11/start/install)
