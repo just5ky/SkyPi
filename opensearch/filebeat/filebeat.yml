@@ -1,0 +1,19 @@
+filebeat.inputs:
+  - type: container
+    paths:
+      - "/var/lib/docker/containers/*/*.log"      # Change this if you have moved your docker data somewhere else
+
+processors:
+  - add_docker_metadata:
+      host: "unix:///var/run/docker.sock"
+
+#  - decode_json_fields:                          # Uncomment if you want filebeat to parse JSON logs or else logstash will parse it
+#      fields: ["message"]
+#      target: "json"
+#      overwrite_keys: true
+
+output.logstash:
+  hosts: ["logstash:5044"]
+
+logging.json: true
+logging.metrics.enabled: false

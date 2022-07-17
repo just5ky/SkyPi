@@ -1,0 +1,51 @@
+version: "3"
+services:
+#--------------------------------------------------------------------------------------------#
+#                                 OpenSearch                                                 #
+#--------------------------------------------------------------------------------------------#
+  opensearch:
+    image: opensearchproject/opensearch
+    container_name: opensearch
+    restart: unless-stopped
+    environment:
+      - cluster.name=opensearch
+      - node.name=opensearch
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    volumes:
+      - opensearch-data:/usr/share/opensearch/data
+    ports:
+      - 9200:9200
+      - 9600:9600
+
+  opensearch-dashboards:
+    image: opensearchproject/opensearch-dashboards
+    container_name: opensearch-dashboards
+    restart: unless-stopped
+    ports:
+      - 5601:5601
+    expose:
+      - "5601"
+    environment:
+      OPENSEARCH_HOSTS: '["https://opensearch:9200"]'
+    labels:
+      - flame.type=application # "app" works too
+      - flame.name=Portainer
+      - flame.url=http://192.168.0.150:5601
+      - flame.icon=https://opensearch.org/assets/img/favicon.ico
+
+  logstash:
+    image: opensearchproject/logstash-oss-with-opensearch-output-plugin
+    container_name: logstash
+    ports:
+      - 5044:5044
+    volumes:
+      - $DOCKERDIR/logstash/pipeline/:/usr/share/logstash/pipeline/
