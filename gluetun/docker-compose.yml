@@ -1,0 +1,22 @@
+version: '3'
+services:
+  #--------------------------------------------------------------------------------------------# 
+  #                                 Gluten                                                     #
+  #--------------------------------------------------------------------------------------------#
+  gluetun:
+    image: qmcgaw/gluetun
+    container_name: gluetun
+    hostname: gluetun
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - $DOCKERDIR/gluetun:/gluetun
+    ports:
+      - 9696:9696/tcp #Prowlarr
+      - 8080:8080/tcp # Qbittorent UI
+      - 3000:3000/tcp # Flood UI
+    environment:
+      - VPN_SERVICE_PROVIDER=private internet access
+      - OPENVPN_USER=$OPENVPN_USER
+      - OPENVPN_PASSWORD=$OPENVPN_PASSWORD
+      - SERVER_REGIONS=Malaysia
