@@ -1,0 +1,19 @@
+version: '3'
+services:
+  #--------------------------------------------------------------------------------------------# 
+  #                                 Doku                                                       #
+  #--------------------------------------------------------------------------------------------#
+  doku:
+    image: amerkurev/doku
+    container_name: doku
+    restart: unless-stopped
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock:ro'
+      - '/:/hostroot:ro'
+    ports:
+      - '9090:9090'
+    labels:
+      - flame.type=application # "app" works too
+      - flame.name=Doku
+      - flame.url=https://Domain/TLD
+      - flame.icon=https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/docker.png
