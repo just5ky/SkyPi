@@ -4,10 +4,8 @@
 
 A monitoring solution for Docker hosts and containers with [Prometheus](https://prometheus.io/), [Grafana](http://grafana.org/), [cAdvisor](https://github.com/google/cadvisor), [NodeExporter](https://github.com/prometheus/node_exporter).
 
-## Screenshot
-
-![screencapture-192-168-1-100-1013-d-Ss3q6hSZk-docker-and-os-metrics-2021-10-13-21_35_57](https://user-images.githubusercontent.com/18188407/137201307-a47cf9c3-fe8b-4792-8bd1-3fc02f89893b.png)
-
+## Preview
+![](https://github.com/Just5KY/SkyPi/blob/main/monitor/Recording%202022-07-26%20at%2004.36.20.gif)
 
 # Installation
 
