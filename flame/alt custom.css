@@ -1,0 +1,85 @@
+/* Background image */
+body {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+}
+
+body:before {
+    content: "";
+    position: fixed;
+    overflow: hidden;
+    background-image: url("https://w.wallhaven.cc/full/6o/wallhaven-6ozkzl.jpg");
+    background-size: cover;
+    z-index: -999;
+    height: 100%;
+    width: 100%;
+    /* transform: scale(1.1); */
+
+    /* Change the following only: */
+    filter: blur(0.08rem);
+    opacity: 0.6;
+}
+
+/* Widen Container Layout */
+.Layout_Container__2Hv3J {
+    padding: 1.25rem 0 !important;
+}
+
+/* Sets Overall Grid Handling */
+.AppGrid_AppGrid__33iLW {
+    /* Three Column Layout */
+    grid-template-columns: repeat(3, minmax(18.75rem, 18.75rem)) !important;
+    /* Full Width Layout */
+    /*grid-template-columns: repeat(auto-fit, minmax(18.75rem, 3fr)) !important; */
+    align-items: left !important;
+    column-gap: 3.125rem !important;
+    row-gap: 1.2rem !important; 
+}
+
+/* AppCard Customisation */
+.AppCard_AppCard__1V2_0 {
+    padding: 0.8rem !important;
+    border-radius: 0.6rem !important;
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.AppCard_AppCard__1V2_0 a {
+    border-radius: 0.41rem !important;
+    padding: 0.3rem !important;
+}
+
+.AppCard_AppCard__1V2_0 a:hover {
+    background-color: rgba(0, 255, 0, 0.3) !important;
+    border-radius: 0.31rem !important;
+    padding: 0.3rem !important;
+}
+
+/* Apps Layout in AppCards */
+.AppCard_Apps__3ud43 {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-gap: 0.3125rem !important;
+}
+
+.AppCard_Apps__3ud43 a {
+    line-height: 1rem !important;
+}
+
+.AppCard_Apps__3ud43 a:hover {
+    line-height: 1rem !important;
+}
+
+/* Push description to reasonable space */
+.AppCard_AppCardDetails__tbAhY h5 {
+    font-size: 0.7692rem !important;
+    padding-bottom: 0.625rem !important;
+}
+
+/* Settings button style */
+.Home_SettingsButton__Qvn8C {
+    border-radius: 0.5rem !important;
+}
