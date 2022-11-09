@@ -14,6 +14,7 @@
 ## Apps
 
 - [x] [Authelia](https://github.com/authelia/authelia)
+- [X] [Authentik](https://goauthentik.io/docs/installation/docker-compose)
 - [X] [Bazarr](https://github.com/morpheus65535/bazarr)
 - [X] [Code Server](https://github.com/linuxserver/docker-code-server)
 - [x] [Dashdot](https://github.com/MauriceNino/dashdot)
@@ -45,6 +46,7 @@
 - [ ] [Scrutiny](https://github.com/linuxserver/docker-scrutiny)
 - [X] [Siyuan](https://hub.docker.com/r/b3log/siyuan)
 - [X] [Sonarr](https://sonarr.tv/)
+- [X] [Traefik](https://doc.traefik.io/)
 - [X] [Your_Spotify](https://github.com/Yooooomi/your_spotify)
 - [ ] [Uptime Kuma](https://github.com/louislam/uptime-kuma)
 - [x] [Valutwarden](https://github.com/dani-garcia/vaultwarden)
