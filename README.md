@@ -49,7 +49,7 @@
 - [X] [Traefik](https://doc.traefik.io/)
 - [X] [Your_Spotify](https://github.com/Yooooomi/your_spotify)
 - [ ] [Uptime Kuma](https://github.com/louislam/uptime-kuma)
-- [x] [Valutwarden](https://github.com/dani-garcia/vaultwarden)
+- [x] [Vaultwarden](https://github.com/dani-garcia/vaultwarden)
 - [x] [Watchtower](https://containrrr.dev/watchtower)
 - [x] [Whoogle](https://github.com/benbusby/whoogle-search)
 
